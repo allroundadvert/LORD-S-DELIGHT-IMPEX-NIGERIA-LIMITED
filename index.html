@@ -13,16 +13,25 @@ body {
   color: #fff;
 }
 
-/* HERO HEADER */
+/* HERO SECTION (NO STRETCH IMAGE) */
 .hero {
-  background: url('https://raw.githubusercontent.com/allroundadvert/LORD-S-DELIGHT-IMPEX-NIGERIA-LIMITED/5ae38dff2d80f48abc77ead497275992d378a83e/1776463218084.png') no-repeat center center/cover;
-  height: 300px;
   position: relative;
+  text-align: center;
+}
+
+.hero-img {
+  width: 100%;
+  height: auto; /* keeps original size */
+  display: block;
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.65);
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 100%;
+  background: rgba(0,0,0,0.6);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,14 +41,12 @@ body {
 .overlay h1 {
   color: gold;
   font-size: 26px;
-  text-align: center;
   margin: 0;
 }
 
 .overlay p {
   color: #ddd;
   font-size: 14px;
-  text-align: center;
 }
 
 /* CONTAINER */
@@ -134,6 +141,8 @@ h2 {
 
 <!-- HERO HEADER -->
 <header class="hero">
+  <img src="https://raw.githubusercontent.com/allroundadvert/LORD-S-DELIGHT-IMPEX-NIGERIA-LIMITED/5ae38dff2d80f48abc77ead497275992d378a83e/1776463218084.png" class="hero-img">
+
   <div class="overlay">
     <h1>LORD'S DELIGHT IMPEX NIGERIA LIMITED</h1>
     <p>Number 61A Ezenei Avenue, by Sovitel Hotel Junction, Asaba, Delta State</p>
