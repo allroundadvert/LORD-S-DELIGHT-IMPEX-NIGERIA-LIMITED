@@ -7,81 +7,91 @@
 
 <style>
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   margin: 0;
   background: #f5f5f5;
 }
 
 header {
-  background: #222;
+  background: #111;
   color: #fff;
   text-align: center;
   padding: 20px;
-}
-
-header h1 {
-  margin: 0;
-}
-
-.address {
-  font-size: 14px;
-  margin-top: 5px;
 }
 
 .container {
   padding: 20px;
 }
 
+h2 {
+  margin-top: 40px;
+  border-left: 5px solid green;
+  padding-left: 10px;
+}
+
+/* FORM */
+.form-box {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.form-box input, .form-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* TILE GRID */
 .tiles-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .tile-card {
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   padding: 10px;
+  border-radius: 10px;
   text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .tile-card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 10px;
-}
-
-.tile-card h3 {
-  margin: 10px 0;
-}
-
-.select-box {
-  margin-top: 10px;
-}
-
-button {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 8px;
 }
 
 .submit-btn {
+  margin-top: 30px;
+  padding: 15px;
+  width: 100%;
   background: green;
   color: white;
-  margin-top: 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
 }
 
 .whatsapp-btn {
-  background: #25D366;
-  color: white;
   position: fixed;
   bottom: 20px;
   right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  border: none;
 }
-
+.map {
+  margin-top: 30px;
+}
 </style>
 </head>
 
@@ -89,102 +99,136 @@ button {
 
 <header>
   <h1>LORD'S DELIGHT IMPEX NIGERIA LIMITED</h1>
-  <div class="address">
-    Number 61A Ezenei Avenue, by Sovitel Hotel Junction, Asaba, Delta State.
-  </div>
+  <p>Number 61A Ezenei Avenue, by Sovitel Hotel Junction, Asaba, Delta State</p>
 </header>
 
 <div class="container">
 
-  <h2>Select Your Preferred Tiles</h2>
+<form id="tileForm">
 
-  <form id="tileForm">
-    <div class="tiles-grid">
+<!-- CUSTOMER DETAILS -->
+<div class="form-box">
+  <h2>Customer Details</h2>
 
-      <!-- TILE 1 -->
-      <div class="tile-card">
-        <img src="https://via.placeholder.com/300x200" alt="Tile 1">
-        <h3>Marble Tiles</h3>
-        <input type="checkbox" value="Marble Tiles">
-      </div>
+  <input type="text" id="name" placeholder="Customer Name" required>
+  <input type="tel" id="phone" placeholder="Phone Number" required>
+  <textarea id="spec" placeholder="Specifications (Size, Color, Quantity etc)"></textarea>
+</div>
 
-      <!-- TILE 2 -->
-      <div class="tile-card">
-        <img src="https://via.placeholder.com/300x200" alt="Tile 2">
-        <h3>Granite Tiles</h3>
-        <input type="checkbox" value="Granite Tiles">
-      </div>
+<!-- SET 1 -->
+<h2>Set 1: Marble Tiles</h2>
+<div class="tiles-grid">
+  <div class="tile-card">
+    <img src="https://via.placeholder.com/300x200">
+    <p>Marble A</p>
+    <input type="checkbox" value="Marble A">
+  </div>
+</div>
 
-      <!-- TILE 3 -->
-      <div class="tile-card">
-        <img src="https://via.placeholder.com/300x200" alt="Tile 3">
-        <h3>Wood Finish Tiles</h3>
-        <input type="checkbox" value="Wood Finish Tiles">
-      </div>
+<!-- SET 2 -->
+<h2>Set 2: Granite Tiles</h2>
+<div class="tiles-grid">
+  <div class="tile-card">
+    <img src="https://via.placeholder.com/300x200">
+    <p>Granite A</p>
+    <input type="checkbox" value="Granite A">
+  </div>
+</div>
 
-      <!-- TILE 4 -->
-      <div class="tile-card">
-        <img src="https://via.placeholder.com/300x200" alt="Tile 4">
-        <h3>Bathroom Tiles</h3>
-        <input type="checkbox" value="Bathroom Tiles">
-      </div>
+<!-- SET 3 -->
+<h2>Set 3: Bathroom Tiles</h2>
+<div class="tiles-grid">
+  <div class="tile-card">
+    <img src="https://via.placeholder.com/300x200">
+    <p>Bathroom A</p>
+    <input type="checkbox" value="Bathroom A">
+  </div>
+</div>
 
-      <!-- TILE 5 -->
-      <div class="tile-card">
-        <img src="https://via.placeholder.com/300x200" alt="Tile 5">
-        <h3>Kitchen Tiles</h3>
-        <input type="checkbox" value="Kitchen Tiles">
-      </div>
+<!-- SET 4 -->
+<h2>Set 4: Kitchen Tiles</h2>
+<div class="tiles-grid">
+  <div class="tile-card">
+    <img src="https://via.placeholder.com/300x200">
+    <p>Kitchen A</p>
+    <input type="checkbox" value="Kitchen A">
+  </div>
+</div>
 
-      <!-- TILE 6 -->
-      <div class="tile-card">
-        <img src="https://via.placeholder.com/300x200" alt="Tile 6">
-        <h3>Outdoor Tiles</h3>
-        <input type="checkbox" value="Outdoor Tiles">
-      </div>
+<!-- SET 5 -->
+<h2>Set 5: Outdoor Tiles</h2>
+<div class="tiles-grid">
+  <div class="tile-card">
+    <img src="https://via.placeholder.com/300x200">
+    <p>Outdoor A</p>
+    <input type="checkbox" value="Outdoor A">
+  </div>
+</div>
 
-    </div>
+<button type="button" class="submit-btn" onclick="submitTiles()">Submit Selection</button>
 
-    <button type="button" class="submit-btn" onclick="submitTiles()">Submit Selection</button>
-  </form>
+</form>
+
+<!-- MAP -->
+<div class="map">
+  <h2>Our Location</h2>
+  <iframe 
+    src="https://maps.google.com/maps?q=Ezenei%20Avenue%20Asaba&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    width="100%" 
+    height="300" 
+    style="border:0;">
+  </iframe>
+</div>
 
 </div>
 
-<!-- WhatsApp Button -->
-<button class="whatsapp-btn" onclick="sendToWhatsApp()">Chat on WhatsApp</button>
+<button class="whatsapp-btn" onclick="sendToWhatsApp()">WA</button>
 
 <script>
 function submitTiles() {
   let selected = [];
-  let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  let boxes = document.querySelectorAll("input[type=checkbox]:checked");
 
-  checkboxes.forEach((box) => {
+  boxes.forEach(box => {
     selected.push(box.value);
   });
 
-  if(selected.length === 0){
-    alert("Please select at least one tile.");
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let spec = document.getElementById("spec").value;
+
+  if(!name || !phone){
+    alert("Please fill your name and phone number");
     return;
   }
 
-  localStorage.setItem("selectedTiles", selected.join(", "));
-  alert("Selection saved! Click WhatsApp to send.");
+  if(selected.length === 0){
+    alert("Please select tiles");
+    return;
+  }
+
+  let fullData = 
+    "Name: " + name + 
+    "%0APhone: " + phone + 
+    "%0ASpecifications: " + spec + 
+    "%0ATiles: " + selected.join(", ");
+
+  localStorage.setItem("order", fullData);
+  alert("Saved! Click WhatsApp to send order.");
 }
 
 function sendToWhatsApp() {
-  let selection = localStorage.getItem("selectedTiles");
+  let data = localStorage.getItem("order");
 
-  if(!selection){
-    alert("No selection found. Please select tiles first.");
+  if(!data){
+    alert("No order found");
     return;
   }
 
   let phone = "2348032410223";
-  let message = encodeURIComponent("Hello, I want these tiles: " + selection);
+  let url = "https://wa.me/" + phone + "?text=" + data;
 
-  let url = "https://wa.me/" + phone + "?text=" + message;
-
-  window.open(url, "_blank");
+  window.open(url);
 }
 </script>
 
