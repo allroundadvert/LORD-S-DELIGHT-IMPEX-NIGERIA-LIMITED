@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LORD'S DELIGHT IMPEX NIGERIA LIMITED</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+header {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.address {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.tile-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  padding: 10px;
+  text-align: center;
+}
+
+.tile-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tile-card h3 {
+  margin: 10px 0;
+}
+
+.select-box {
+  margin-top: 10px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background: green;
+  color: white;
+  margin-top: 20px;
+}
+
+.whatsapp-btn {
+  background: #25D366;
+  color: white;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>LORD'S DELIGHT IMPEX NIGERIA LIMITED</h1>
+  <div class="address">
+    Number 61A Ezenei Avenue, by Sovitel Hotel Junction, Asaba, Delta State.
+  </div>
+</header>
+
+<div class="container">
+
+  <h2>Select Your Preferred Tiles</h2>
+
+  <form id="tileForm">
+    <div class="tiles-grid">
+
+      <!-- TILE 1 -->
+      <div class="tile-card">
+        <img src="https://via.placeholder.com/300x200" alt="Tile 1">
+        <h3>Marble Tiles</h3>
+        <input type="checkbox" value="Marble Tiles">
+      </div>
+
+      <!-- TILE 2 -->
+      <div class="tile-card">
+        <img src="https://via.placeholder.com/300x200" alt="Tile 2">
+        <h3>Granite Tiles</h3>
+        <input type="checkbox" value="Granite Tiles">
+      </div>
+
+      <!-- TILE 3 -->
+      <div class="tile-card">
+        <img src="https://via.placeholder.com/300x200" alt="Tile 3">
+        <h3>Wood Finish Tiles</h3>
+        <input type="checkbox" value="Wood Finish Tiles">
+      </div>
+
+      <!-- TILE 4 -->
+      <div class="tile-card">
+        <img src="https://via.placeholder.com/300x200" alt="Tile 4">
+        <h3>Bathroom Tiles</h3>
+        <input type="checkbox" value="Bathroom Tiles">
+      </div>
+
+      <!-- TILE 5 -->
+      <div class="tile-card">
+        <img src="https://via.placeholder.com/300x200" alt="Tile 5">
+        <h3>Kitchen Tiles</h3>
+        <input type="checkbox" value="Kitchen Tiles">
+      </div>
+
+      <!-- TILE 6 -->
+      <div class="tile-card">
+        <img src="https://via.placeholder.com/300x200" alt="Tile 6">
+        <h3>Outdoor Tiles</h3>
+        <input type="checkbox" value="Outdoor Tiles">
+      </div>
+
+    </div>
+
+    <button type="button" class="submit-btn" onclick="submitTiles()">Submit Selection</button>
+  </form>
+
+</div>
+
+<!-- WhatsApp Button -->
+<button class="whatsapp-btn" onclick="sendToWhatsApp()">Chat on WhatsApp</button>
+
+<script>
+function submitTiles() {
+  let selected = [];
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+  checkboxes.forEach((box) => {
+    selected.push(box.value);
+  });
+
+  if(selected.length === 0){
+    alert("Please select at least one tile.");
+    return;
+  }
+
+  localStorage.setItem("selectedTiles", selected.join(", "));
+  alert("Selection saved! Click WhatsApp to send.");
+}
+
+function sendToWhatsApp() {
+  let selection = localStorage.getItem("selectedTiles");
+
+  if(!selection){
+    alert("No selection found. Please select tiles first.");
+    return;
+  }
+
+  let phone = "2348032410223";
+  let message = encodeURIComponent("Hello, I want these tiles: " + selection);
+
+  let url = "https://wa.me/" + phone + "?text=" + message;
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
